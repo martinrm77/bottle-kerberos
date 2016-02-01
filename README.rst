@@ -1,8 +1,8 @@
-Flask-Kerberos
+Bottle-Kerberos
 ==============
 
-Flask-Kerberos is an extension to `Flask`_ that allows you to trivially add
-`Kerberos`_ based authentication to your website. It depends on both Flask and
+Bottle-Kerberos is an extension to `PyBottle`_ that allows you to trivially add
+`Kerberos`_ based authentication to your website. It depends on both PyBottle and
 `python-kerberos`_ 1.1.1+. You can install the requirements from PyPI with
 `easy_install` or `pip` or download them by hand.
 
@@ -17,16 +17,16 @@ Installation
 
 Install the extension with one of the following commands::
 
-    $ easy_install Flask-Kerberos
+    $ easy_install Bottle-Kerberos
 
 or alternatively if you have `pip` installed::
 
-    $ pip install Flask-Kerberos
+    $ pip install Bottle-Kerberos
 
 How to Use
 ----------
 
-To integrate Flask-Kerberos into your application you'll need to generate your
+To integrate Bottle-Kerberos into your application you'll need to generate your
 keytab set the environment variable `KRB5_KTNAME` in your shell to the location
 of the keytab file.
 
@@ -34,19 +34,19 @@ After that, it should be as easy as decorating any view functions you wish to
 require authentication, and changing them to accept the authenticated user
 principal as their first argument::
 
-    from flask_kerberos import requires_authentication
+    from bottle_kerberos import requires_authentication
 
-    @app.route("/protected")
+    @route("/protected")
     @requires_authentication
     def protected_view(user):
         ...
 
 
-Flask-Kerberos assumes that the service will be running using the hostname of
+Bottle-Kerberos assumes that the service will be running using the hostname of
 the host on which the application is run. If this is not the case, you can
 override it by initializing the module::
 
-    from flask_kerberos import init_kerberos
+    from bottle_kerberos import init_kerberos
 
     init_kerberos(app, hostname='example.com')
 
@@ -74,37 +74,18 @@ Full Example
 ------------
 
 To see a simple example, you can download the code `from github
-<http://github.com/mkomitee/flask-kerberos>`_. It is in the example directory.
+<http://github.com/martinrm77/bottle-kerberos>`_. It is in the example directory.
 
 Changes
 -------
 
-1.0.4
-`````
-
--     fixes an exception triggered when a client doesn't request mutual authentication.
-
-1.0.3
+1.0.1
 `````
 
 -     bug fixes
 
-1.0.2
+1.0.0
 `````
 
--     initial implementation
+-     initial implementation - forked and adapted to bottle from flask-kerberos by Michael Komitee
 
-
-API References
---------------
-
-The full API reference:
-
-
-.. automodule:: flask_kerberos
-   :members:
-
-.. _Flask: http://flask.pocoo.org/
-.. _Kerberos: http://wikipedia.org/wiki/Kerberos_(protocol)
-.. _python-kerberos: http://pypi.python.org/pypi/kerberos
-.. _Read the Docs: https://flask-kerberos.readthedocs.org/
