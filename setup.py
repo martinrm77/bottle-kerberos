@@ -7,9 +7,8 @@ Provides Kerberos authentication support for PyBottle applications
 Links
 `````
 
-* `documentation <https://flask-kerberos.readthedocs.org/en/latest/>`_
 * `development version
-  <http://github.com/mkomitee/flask-kerberos/zipball/master#egg=Flask-Kerberos-dev>`_
+  <http://github.com/martinrm77/bottle-kerberos/zipball/master#egg=Bottle-Kerberos-dev>`_
 
 """
 
