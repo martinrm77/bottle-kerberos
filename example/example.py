@@ -1,22 +1,23 @@
 #!/usr/bin/env python
 
-from flask import Flask
-from flask import render_template
-from flask_kerberos import init_kerberos
-from flask_kerberos import requires_authentication
+from bottle import route
+from bottle import run
+from bottle import template
+from bottle import static_file
 
-DEBUG=True
+from bottle_kerberos import init_kerberos
+from bottle_kerberos import requires_authentication
 
-app = Flask(__name__)
-app.config.from_object(__name__)
-
-
-@app.route("/")
+@route('/')
 @requires_authentication
+@view('index.html')
 def index(user):
-    return render_template('index.html', user=user)
+    return dict(user=user)
 
+@route('/static/<filename:path>')
+def static(filename):
+    return static_file(filename, root='static')
 
 if __name__ == '__main__':
     init_kerberos(app)
-    app.run(host='0.0.0.0')
+    run(host='0.0.0.0', debug=True)
