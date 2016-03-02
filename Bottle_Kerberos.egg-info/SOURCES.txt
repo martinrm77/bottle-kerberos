@@ -1,0 +1,12 @@
+AUTHORS
+LICENSE
+MANIFEST.in
+README.rst
+bottle_kerberos.py
+setup.py
+Bottle_Kerberos.egg-info/PKG-INFO
+Bottle_Kerberos.egg-info/SOURCES.txt
+Bottle_Kerberos.egg-info/dependency_links.txt
+Bottle_Kerberos.egg-info/not-zip-safe
+Bottle_Kerberos.egg-info/requires.txt
+Bottle_Kerberos.egg-info/top_level.txt

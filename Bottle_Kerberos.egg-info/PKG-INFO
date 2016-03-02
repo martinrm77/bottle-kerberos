@@ -1,0 +1,30 @@
+Metadata-Version: 1.0
+Name: Bottle-Kerberos
+Version: 1.0.0
+Summary: Kerberos authentication support for Bottle
+Home-page: http://github.com/martinrm77/bottle-kerberos
+Author: Michael Komitee, Martin Mortensen
+Author-email: martin.rene.mortensen@gmail.com
+License: BSD
+Description: 
+        Bottle-Kerberos
+        --------------
+        
+        Provides Kerberos authentication support for PyBottle applications
+        
+        Links
+        `````
+        
+        * `development version
+          <http://github.com/martinrm77/bottle-kerberos/zipball/master#egg=Bottle-Kerberos-dev>`_
+        
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
