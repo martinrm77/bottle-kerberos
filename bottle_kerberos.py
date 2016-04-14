@@ -42,14 +42,16 @@ def _unauthorized():
     Indicate that authentication is required
     '''
     response.set_header('WWW-Authenticate', 'Negotiate')
-    abort (401, 'Unauthorized')
+    response.status = 401
+    return ''
 
 
 def _forbidden():
     '''
     Indicate a complete authentication failure
     '''
-    abort(403, 'Forbidden')
+    response.status = 403
+    return ''
 
 
 def _gssapi_authenticate(token):
