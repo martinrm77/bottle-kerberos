@@ -9,6 +9,10 @@ from os import environ
 
 _SERVICE_NAME = ''
 
+# Empty class for ctx
+class stack:
+    pass
+
 
 def init_kerberos(service='HTTP', hostname=gethostname()):
     '''
@@ -104,7 +108,7 @@ def requires_authentication(function):
     def decorated(*args, **kwargs):
         header = request.headers.get("Authorization")
         if header:
-            ctx = request.ctx = {}
+            ctx = request.ctx = stack()
             token = ''.join(header.split()[1:])
             rc = _gssapi_authenticate(token)
             if rc == kerberos.AUTH_GSS_COMPLETE:

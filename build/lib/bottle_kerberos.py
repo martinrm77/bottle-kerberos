@@ -1,14 +1,13 @@
 import kerberos
 import logging
 
-from bottle import abort
 from bottle import request
 from bottle import response
 from functools import wraps
 from socket import gethostname
 from os import environ
 
-_SERVICE_NAME = None
+_SERVICE_NAME = ''
 
 
 def init_kerberos(service='HTTP', hostname=gethostname()):
