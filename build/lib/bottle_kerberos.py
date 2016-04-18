@@ -9,6 +9,10 @@ from os import environ
 
 _SERVICE_NAME = ''
 
+# Empty class for ctx
+class stack:
+    pass
+
 
 def init_kerberos(service='HTTP', hostname=gethostname()):
     '''
@@ -100,19 +104,22 @@ def requires_authentication(function):
     :returns: decorated function
     :rtype: function
     '''
+    logger=logging.getLogger(__name__)
+
     @wraps(function)
     def decorated(*args, **kwargs):
         header = request.headers.get("Authorization")
         if header:
-            ctx = request.ctx = {}
+            ctx = request.ctx = stack()
             token = ''.join(header.split()[1:])
+            logger.debug('Token: %s' % token)
             rc = _gssapi_authenticate(token)
             if rc == kerberos.AUTH_GSS_COMPLETE:
-                response = function(ctx.kerberos_user, *args, **kwargs)
+                output = function(ctx.kerberos_user, *args, **kwargs)
                 if ctx.kerberos_token is not None:
                     response.set_header('WWW-Authenticate',' '.join(['negotiate',
                                                                      ctx.kerberos_token]) )
-                return response
+                return output
             elif rc != kerberos.AUTH_GSS_CONTINUE:
                 return _forbidden()
         return _unauthorized()
