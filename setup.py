@@ -15,7 +15,7 @@ Links
 from setuptools import setup
 
 setup(name='Bottle-Kerberos',
-      version='1.0.0',
+      version='1.1.0',
       url='http://github.com/martinrm77/bottle-kerberos',
       license='BSD',
       author='Michael Komitee, Martin Mortensen',
